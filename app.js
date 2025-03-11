@@ -12,7 +12,8 @@ app.use('/api/products', productRoute);
 
 
 try {
-    mongoose.connect('mongodb://127.0.0.1:27017/furniture');
+    mongoose.connect('mongodb+srv://sirwin2win:Chiemerie1@cluster0.etqft.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+    // mongoose.connect('mongodb://127.0.0.1:27017/furniture');
      console.log('Connected to DB');    
   
  } catch (error) {
