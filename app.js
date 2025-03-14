@@ -12,13 +12,13 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api/products', productRoute);
 
-const URL = process.env.DB_URI
+const URL = process.env.DB_URI2
 
 // Db connection done
 
 const connectDB = async () =>{
     try{
-  const conn =await mongoose.connect(`${URL}`)
+  const conn =await mongoose.connect('mongodb+srv://'+URL)
    console.log(`MongoDB Connected: ${conn.connection.host}`);
   
   } catch(error) {
