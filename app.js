@@ -14,14 +14,14 @@ app.use('/api/products', productRoute);
 
 
 
-
+// Db connection done
 
 const connectDB = async () =>{
     try{
   const conn =await mongoose.connect(process.env.DB_URI)
    console.log(`MongoDB Connected: ${conn.connection.host}`);
   
-  } catch {
+  } catch(error) {
     console.error(`Error: ${error.message}`)
     process.exit()
   }
