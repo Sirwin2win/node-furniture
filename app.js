@@ -13,14 +13,20 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api/products', productRoute);
 
 
-try {
-    mongoose.connect(process.env.DB_URI)
-     // mongoose.connect('mongodb://127.0.0.1:27017/furniture');
-    console.log('Connected to DB');
 
-} catch (error) {
-    handleError(error);
-}
+
+
+const connectDB = async () =>{
+    try{
+  const conn =await mongoose.connect(process.env.DB_URI)
+   console.log(`MongoDB Connected: ${conn.connection.host}`);
+  
+  } catch {
+    console.error(`Error: ${error.message}`)
+    process.exit()
+  }
+  }
+  connectDB()
 
 
 const customers = [
