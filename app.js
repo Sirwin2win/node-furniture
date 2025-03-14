@@ -12,21 +12,15 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api/products', productRoute);
 
-const URL = process.env.DB_URI2
 
-// Db connection done
+try {
+    mongoose.connect('mongodb+srv://sirwin2win:Chiemerie1@cluster0.etqft.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+    // mongoose.connect('mongodb://127.0.0.1:27017/furniture');
+    console.log('Connected to DB');
 
-const connectDB = async () =>{
-    try{
-  const conn =await mongoose.connect('mongodb+srv://'+URL)
-   console.log(`MongoDB Connected: ${conn.connection.host}`);
-  
-  } catch(error) {
-    console.error(`Error: ${error.message}`)
-    process.exit()
-  }
-  }
-  connectDB()
+} catch (error) {
+    handleError(error);
+}
 
 
 const customers = [
