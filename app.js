@@ -14,7 +14,7 @@ app.use('/api/products', productRoute);
 
 
 
-
+// Db connection done
 
 const connectDB = async () =>{
     try{
