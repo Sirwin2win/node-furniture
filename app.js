@@ -15,7 +15,8 @@ app.use('/api/products', productRoute);
 
 const connectDB = async () =>{
     try{
-  const conn =await mongoose.connect(process.env.DB_URI)
+  const conn =await mongoose.connect('mongodb+srv://sirwin2win:Chiemerie1@cluster0.etqft.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+//   const conn =await mongoose.connect(process.env.DB_URI)
    console.log(`MongoDB Connected: ${conn.connection.host}`);
   
   } catch (error){
