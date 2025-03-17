@@ -13,7 +13,7 @@ const multer  = require('multer')
 
 const storage = multer.diskStorage({
     destination:function(req,file,callback){
-        const dir='../uploads';
+        const dir='./uploads';
         if(!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
@@ -23,7 +23,16 @@ const storage = multer.diskStorage({
         callback(null,file.originalname);
     }
 });
-const upload = multer({ storage: storage }).array('images', 5)
+const upload = multer({ storage: storage }).array('uploads', 5)
+
+
+// const storage = multer.diskStorage({
+//     destination: "uploads",
+//     filename:(req, file, cb)=>{
+//         return cb(null, `${Date.now()}${file.originalname}`)
+//     }
+// });
+// const upload = multer({ storage: storage });
 
 
 router.get('/', getProducts);
